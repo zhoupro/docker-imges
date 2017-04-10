@@ -3,8 +3,8 @@ MAINTAINER prozhou <zhoushengzheng@gmail.com>
 RUN   useradd www && usermod -u 1000 www
 ADD soft/ /data/soft/
 #auth 
-RUN mv /data/soft/ssh /root/.ssh &&chmod 700 -R /root/.ssh && cd /data/soft&& yum install git -y  && \
-	git clone git@github.com:zhouzheng12/lnmp_installer.git && \
+RUN chmod 700 -R /root/.ssh && cd /data/soft&& yum install git -y  && \
+	git clone git://github.com/zhouzheng12/lnmp_installer.git && \
 	yum clean all
 
 WORKDIR /data/soft/lnmp_installer
