@@ -2,7 +2,7 @@ FROM centos:6
 MAINTAINER prozhou <zhoushengzheng@gmail.com>
 RUN   useradd www && usermod -u 1000 www
 #auth 
-RUN  yum install git -y  && \
+RUN  yum install git -y  && mkdir -p /data/soft && cd /data/soft && \
 	git clone git://github.com/zhouzheng12/lnmp_installer.git && \
 	yum clean all
 
