@@ -22,23 +22,23 @@ RUN  wget https://ftp.pcre.org/pub/pcre/pcre-8.39.tar.gz &&  \
      tar Jxf zlib-1.2.11.tar.xz -C /opt/build && \
      cd /opt/build/nginx-1.10.1 && \
      ./configure  \
-    --sbin-path=/etc/nginx/nginx \
-    --conf-path=/etc/nginx/nginx.conf \
+    --sbin-path=/data/server/nginx/nginx \
+    --conf-path=/data/server/nginx/nginx.conf \
     --pid-path=/var/run/nginx.pid \
     --with-http_ssl_module \
     --with-pcre=/opt/build/pcre-8.39 \
     --with-zlib=/opt/build/zlib-1.2.11 && \
      make && make install && \
-     mv /opt/soft/nginx.conf      /etc/nginx/nginx.conf  && \
-     mkdir -p /etc/nginx/conf.d/ && \
-     mv  /opt/soft/sites-enabled/*   /etc/nginx/conf.d/ && \
+     mv /opt/soft/nginx.conf      /data/server/nginx/nginx.conf  && \
+     mkdir -p /data/server/nginx/conf.d/ && \
+     mv  /opt/soft/sites-enabled/*   /data/server/nginx/conf.d/ && \
      mkdir /opt/htdocs && mkdir /opt/log && mkdir /opt/log/nginx && \
      chown -R www-data.www-data /opt/htdocs /opt/log && \
      sudo rm -rf /opt/soft  /opt/build
 
 WORKDIR /
 RUN echo '#!/bin/bash' > /init.sh && \
-    echo '/etc/nginx/nginx -g "daemon off;"' >> /init.sh && \
+    echo '/data/server/nginx/nginx -g "daemon off;"' >> /init.sh && \
     chmod +x /init.sh
 CMD ["/init.sh"]
 EXPOSE 80
