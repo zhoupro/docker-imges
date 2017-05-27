@@ -1,0 +1,14 @@
+django  
+uwsgi 
+pymysql
+redis
+lxml
+beautifulsoup4
+requests 
+chardet 
+sqlalchemy 
+gevent 
+psutil 
+
+
+
