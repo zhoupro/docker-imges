@@ -1,0 +1,9 @@
+version: "2"
+services:
+  'ipproxy':
+    image: prozhou/uu_14.pr_ipproxypoll
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./wwwroot:/data/www/wwwroot
+ 
