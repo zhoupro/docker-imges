@@ -16,9 +16,16 @@ tsung -f tsung start
 ```
 
 open [web monitor](http://172.16.238.11:8091) to see the status
-![tsung web](./tsung.png "tsung status")
+![tsung web]( https://raw.githubusercontent.com/zhouzheng12/docker-imges/master/cs_6_tsung_1.6.0/tsung.png)
 
 ### ref
 [ssh_agent](https://segmentfault.com/a/1190000002449006)
+
+
+### how to see the Dockerfile
+
+click [Dockerfile](https://github.com/zhouzheng12/docker-imges)
+to enter directory to see the file.
+
 
 
