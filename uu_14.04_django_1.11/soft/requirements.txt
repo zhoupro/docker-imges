@@ -9,6 +9,9 @@ chardet
 sqlalchemy 
 gevent 
 psutil 
-
+djangorestframework
+markdown
+django-filter
+Pygments
 
 
