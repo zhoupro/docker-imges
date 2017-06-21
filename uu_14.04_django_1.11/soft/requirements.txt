@@ -13,5 +13,7 @@ djangorestframework
 markdown
 django-filter
 Pygments
+cssselect
+
 
 
