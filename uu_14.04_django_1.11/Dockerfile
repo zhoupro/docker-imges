@@ -33,7 +33,6 @@ RUN echo '#!/bin/bash' > /init.sh && \
     chmod +x /init.sh
 CMD ["/init.sh"]
 
-VOLUME ["/data"]
 
 EXPOSE 9090
 

@@ -27,6 +27,5 @@ RUN echo "zhouzheng" >> /etc/allowed_users
 
 RUN mkdir -p /var/run/vsftpd/empty
 
-VOLUME /data
 EXPOSE 20 21
 CMD /usr/sbin/vsftpd

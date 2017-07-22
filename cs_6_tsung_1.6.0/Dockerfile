@@ -34,7 +34,6 @@ RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
 RUN mkdir -p /data/www/wwwroot
-VOLUME ["/data"]
 # 启动sshd服务并且暴露22端口  
 RUN mkdir /var/run/sshd  
 EXPOSE 22  

@@ -14,5 +14,4 @@ WORKDIR /
 ADD init.sh /init.sh
 CMD ["/init.sh"]
 # Expose ports.
-VOLUME ["/data"]
 EXPOSE 9000
