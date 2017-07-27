@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER prozhou <zhoushengzheng@gmail.com>
 
 WORKDIR /etc/apt
@@ -6,19 +6,18 @@ ADD soft/ /opt/soft
 
 RUN mkdir -p /var/log/uwsgi/ && touch /var/log/uwsgi/htdocs.log
 
-RUN mv /opt/soft/sources.list sources.list && \
-    apt-get update
+RUN  apt-get update
 
 RUN   usermod -u 1000 www-data
 
-RUN   sudo apt-get install  curl wget software-properties-common python-software-properties make \
+RUN    apt-get install  curl wget software-properties-common python-software-properties make \
 	libxml2 libxml2-dev libevent-1.4-2 libevent-dev bzip2 libbz2-dev \
 	libcurl3-gnutls libcurl4-gnutls-dev  \
 	libmcrypt4 libmcrypt-dev  \
 	libssl-dev openssl autoconf cron vim build-essential \
 	libxslt1-dev zlib1g-dev \
 	  python3-dev   python3-pip uwsgi-plugin-python3 uwsgi-plugin-python3 -y \
-	&& sudo apt-get autoremove && sudo apt-get autoclean && \
+	&&  apt-get autoremove &&  apt-get autoclean && \
 	 rm -rf /var/lib/apt/lists/*
      
 

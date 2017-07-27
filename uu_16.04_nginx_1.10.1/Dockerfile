@@ -2,16 +2,15 @@ FROM ubuntu:14.04
 MAINTAINER prozhou <zhoushengzheng@gmail.com>
 
 WORKDIR /etc/apt
-ADD soft/ /opt/soft
-RUN  usermod -u 1000 www-data
-RUN mv /opt/soft/sources.list sources.list && \
-    apt-get update && apt-get clean
 
-RUN   sudo apt-get install  curl wget software-properties-common python-software-properties make \
+RUN  usermod -u 1000 www-data
+RUN apt-get update && apt-get clean
+
+RUN    apt-get install  curl wget software-properties-common python-software-properties make \
 	libxml2 libxml2-dev libevent-1.4-2 libevent-dev bzip2 libbz2-dev \
 	libcurl3-gnutls libcurl4-gnutls-dev  \
 	libmcrypt4 libmcrypt-dev  \
-	libssl-dev openssl autoconf cron vim build-essential -y && sudo apt-get autoremove && sudo apt-get autoclean
+	libssl-dev openssl autoconf cron vim build-essential -y &&  apt-get autoremove &&  apt-get autoclean
 
 RUN  wget https://ftp.pcre.org/pub/pcre/pcre-8.39.tar.gz &&  \
      wget	http://zlib.net/zlib-1.2.11.tar.xz && \
@@ -34,7 +33,7 @@ RUN  wget https://ftp.pcre.org/pub/pcre/pcre-8.39.tar.gz &&  \
      mv  /opt/soft/sites-enabled/*   /data/server/nginx/conf.d/ && \
      mkdir /opt/htdocs && mkdir /opt/log && mkdir /opt/log/nginx && \
      chown -R www-data.www-data /opt/htdocs /opt/log && \
-     sudo rm -rf /opt/soft  /opt/build
+      rm -rf /opt/soft  /opt/build
 
 WORKDIR /
 RUN echo '#!/bin/bash' > /init.sh && \

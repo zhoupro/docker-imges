@@ -1,9 +1,7 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Sven Dowideit <SvenDowideit@docker.com>
 
-ADD soft/ /opt/soft
-RUN mv /opt/soft/sources.list sources.list && \
-    apt-get update
+RUN apt-get update
 
 RUN  apt-get install -y --no-install-recommends vsftpd 
 RUN apt-get clean
