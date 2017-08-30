@@ -2,7 +2,7 @@ FROM centos:6
 MAINTAINER prozhou <zhoushengzheng@gmail.com>
 RUN   useradd www && usermod -u 1000 www
 #auth 
-RUN  yum install git -y  && mkdir -p /data/soft && cd /data/soft && \
+RUN  yum install git dos2unix -y  && mkdir -p /data/soft && cd /data/soft && \
 	git clone git://github.com/zhouzheng12/lnmp_installer.git && \
 	yum clean all
 
@@ -11,6 +11,7 @@ RUN   bash install.sh -s -n 1 -d 1 && rm -rf /data/soft && yum clean all
 # Define working directory.
 WORKDIR /
 ADD init.sh /init.sh
+RUN dos2unix /init.sh
 CMD ["/init.sh"]
 # Expose ports.
 EXPOSE 9000
