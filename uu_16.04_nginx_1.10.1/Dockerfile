@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER prozhou <zhoushengzheng@gmail.com>
 
 WORKDIR /etc/apt
+ADD soft/ /opt/soft
 
 RUN  usermod -u 1000 www-data
 RUN apt-get update && apt-get clean
