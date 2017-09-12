@@ -3,7 +3,7 @@ services:
   'mkdocs':
     image: prozhou/uu_16.04_mkdocs
     ports:
-      - "15080:80"
+      - "51080:80"
     volumes:
       - ./wwwroot:/data/www/wwwroot
       - ./conf/nginx/sites-enabled:/data/server/nginx/conf.d
