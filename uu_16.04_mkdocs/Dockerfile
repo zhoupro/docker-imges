@@ -1,6 +1,6 @@
 FROM prozhou/uu_16.04_nginx_1.10.1
 
-RUN apt-get update -qq &&  apt-get upgrade -y && apt-get install -y python-pip git && \
+RUN apt-get update -qq &&  apt-get upgrade -y && apt-get install -y python-pip inotify-tools git && \
     pip install mkdocs mkdocs-material mkdocs-bootswatch && apt-get clean && apt-get autoclean
 
 RUN mkdir -p /data/www && cd /data/www && mkdocs new wwwroot
@@ -18,9 +18,8 @@ RUN rm -rf search.pyc && python -m py_compile search.py
 
 RUN sed -i "s|#gzip  on;|gzip  on; etag  off; server_tokens off; gzip_types *;|" /data/server/nginx/nginx.conf
 WORKDIR /
-RUN echo '#!/bin/bash' > /init.sh && \
-    echo '/data/server/nginx/nginx; while true; do sleep 30; cd /data/www/wwwroot && mkdocs build; done' >> /init.sh && \
-    chmod +x /init.sh
+COPY init.sh  /init.sh
+RUN chmod +x  /init.sh
 CMD ["/init.sh"]
 
 
