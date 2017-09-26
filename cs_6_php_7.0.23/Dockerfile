@@ -8,7 +8,7 @@ RUN mkdir -p /data/soft && cd /data/soft&& yum install git -y  && \
 	yum clean all
 
 WORKDIR /data/soft/lnmp_installer
-RUN   bash install.sh -s -p 2 -d 1 && rm -rf /data/soft && yum clean all
+RUN   bash install.sh -s -p 5 -d 1 && rm -rf /data/soft && yum clean all
 # Define working directory.
 WORKDIR /
 ADD init.sh /init.sh
