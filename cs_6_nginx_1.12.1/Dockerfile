@@ -3,7 +3,7 @@ MAINTAINER prozhou <zhoushengzheng@gmail.com>
 RUN   useradd www && usermod -u 1000 www
 #auth 
 RUN  yum install git dos2unix -y  && mkdir -p /data/soft && cd /data/soft && \
-    if [  -d  "lnmp_installer" ];then git clone git://github.com/zhouzheng12/lnmp_installer.git; fi &&\
+    git clone git://github.com/zhouzheng12/lnmp_installer.git &&\
 	yum clean all
 
 WORKDIR /data/soft/lnmp_installer

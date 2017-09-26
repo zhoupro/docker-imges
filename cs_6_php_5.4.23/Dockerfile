@@ -4,7 +4,7 @@ RUN   useradd www && usermod -u 1000 www
 
 #auth 
 RUN mkdir -p /data/soft && cd /data/soft&& yum install git -y  && \
-	if [  -d  "lnmp_installer" ];then git clone git://github.com/zhouzheng12/lnmp_installer.git; fi &&\
+	git clone git://github.com/zhouzheng12/lnmp_installer.git &&\
 	yum clean all
 
 WORKDIR /data/soft/lnmp_installer
