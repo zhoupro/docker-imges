@@ -12,6 +12,6 @@ RUN   bash install.sh -s -n 2 -d 1 && rm -rf /data/soft && yum clean all
 WORKDIR /
 ADD init.sh /init.sh
 RUN dos2unix /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 # Expose ports.
 EXPOSE 9000

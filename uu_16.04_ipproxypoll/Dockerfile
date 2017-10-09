@@ -29,7 +29,7 @@ WORKDIR /
 RUN echo '#!/bin/bash' > /init.sh && \
     echo 'cd /data/www/wwwroot && if [ -f IPProxy.py ]; then python3 IPProxy.py; fi && while true; do sleep 1000; done ' >> /init.sh && \
     chmod +x /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 
 
 EXPOSE 8080

@@ -40,7 +40,7 @@ WORKDIR /
 RUN echo '#!/bin/bash' > /init.sh && \
     echo '/data/server/nginx/nginx -g "daemon off;"' >> /init.sh && \
     chmod +x /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 EXPOSE 80
 VOLUME ["/opt"]
 

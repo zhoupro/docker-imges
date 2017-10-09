@@ -12,6 +12,6 @@ RUN   bash install.sh -s -p 2 -d 1 && rm -rf /data/soft && yum clean all
 # Define working directory.
 WORKDIR /
 ADD init.sh /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 # Expose ports.
 EXPOSE 9000

@@ -30,7 +30,7 @@ WORKDIR /
 RUN echo '#!/bin/bash' > /init.sh && \
     echo 'cd /opt/soft && uwsgi --ini uwsgi.ini && while true; do sleep 1000; done ' >> /init.sh && \
     chmod +x /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 
 
 EXPOSE 9090

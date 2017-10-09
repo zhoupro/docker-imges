@@ -20,6 +20,6 @@ RUN sed -i "s|#gzip  on;|gzip  on; etag  off; server_tokens off; gzip_types *;|"
 WORKDIR /
 COPY init.sh  /init.sh
 RUN chmod +x  /init.sh
-CMD ["/init.sh"]
+ENTRYPOINT source /etc/profile ; /init.sh
 
 
